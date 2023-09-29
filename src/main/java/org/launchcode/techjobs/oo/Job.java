@@ -35,21 +35,15 @@ public class Job {
     @Override
     public String toString(){
         String newline = System.lineSeparator();
-        // crear un array con los datos, un for each loop, if there is no data, convert the value to "NO DATA AVAILABLE"
-        String[] arrayOfData = {name, employer.getValue(), location.getValue(), positionType.getValue(), coreCompetency.getValue()};
-        for (String data: arrayOfData) {
-            if (data.isEmpty()) {
-                data = "Data not available";
-            }
-        }
+        String emptyMessage = "Data not available";
         return newline +
-                "ID: " + id + newline +
-                "Name: " + name + newline +
-                "Employer: " + employer + newline +
-                "Location: " + location + newline +
-                "Position Type: " + positionType + newline +
-                "Core Competency: " + coreCompetency +
-                newline;
+                    "ID: " + id + newline +
+                    "Name: " + (name.isEmpty()? emptyMessage : name) + newline +
+                    "Employer: " + (employer.getValue().isEmpty()? emptyMessage : employer) + newline +
+                    "Location: " + (location.getValue().isEmpty()? emptyMessage : location) + newline +
+                    "Position Type: " + (positionType.getValue().isEmpty()? emptyMessage : positionType) + newline +
+                    "Core Competency: " + (coreCompetency.getValue().isEmpty()? emptyMessage : coreCompetency) +
+                    newline;
     }
 
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields

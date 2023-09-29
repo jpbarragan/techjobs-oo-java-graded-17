@@ -73,15 +73,15 @@ public class JobTest {
 
     @Test
     public void testToStringHandlesEmptyField(){
-        Job job8 = new Job("Product tester", new Employer(""), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        Job job8 = new Job("", new Employer(""), new Location(""), new PositionType(""), new CoreCompetency(""));
         String newline = System.lineSeparator();
         String expected = newline +
                 "ID: " + job8.getId() + newline +
-                "Name: " + job8.getName() + newline +
+                "Name: " + "Data not available" + newline +
                 "Employer: " + "Data not available" + newline +
-                "Location: " + job8.getLocation() + newline +
-                "Position Type: " + job8.getPositionType() + newline +
-                "Core Competency: " + job8.getCoreCompetency() + newline +
+                "Location: " + "Data not available" + newline +
+                "Position Type: " + "Data not available" + newline +
+                "Core Competency: " + "Data not available" +
                 newline;
         String actual = job8.toString() ;
         assertEquals(expected, actual);
